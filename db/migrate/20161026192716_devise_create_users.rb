@@ -34,6 +34,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
 
       # create course timestamps for submission validation
+      t.timestamp :appetizer_time
+      t.timestamp :salad_time
+      t.timestamp :main_course_time
+      t.timestamp :dessert_time
 
       t.timestamps null: false
     end
