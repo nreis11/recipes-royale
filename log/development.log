@@ -177,3 +177,28 @@ Processing by CoursesController#index as HTML
 Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/courses" for ::1 at 2016-10-27 10:18:22 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 32ms (Views: 29.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-27 10:26:36 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 40ms (Views: 32.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/1" for ::1 at 2016-10-27 10:26:39 -0700
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 73ms (Views: 25.1ms | ActiveRecord: 0.7ms)
+
+
