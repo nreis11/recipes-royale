@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'ingredients/index'
+
+  get 'ingredients/show'
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
