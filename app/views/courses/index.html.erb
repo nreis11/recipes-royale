@@ -1,0 +1,7 @@
+<h1>Courses INDEX!</h1>
+
+<ul>
+<% @courses.each do |course| %>
+  <li><%= link_to "#{course.name}", course_path(course.id) %></li>
+<% end %>
+</ul>
