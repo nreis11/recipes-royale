@@ -4,5 +4,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  resources :courses, only: [:show] do
+    resources :recipes
+  end
+
+  resources :ingredients, only: [:show] do
+    resources :recipes
+  end
+
   root 'home#index'
 end
