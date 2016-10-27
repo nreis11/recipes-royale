@@ -1,1 +1,10 @@
-<h1> home page </h1>
+<% if !user_signed_in? %>
+  <div class="jumbotron home-hero">
+    <div class="container">
+      <h1>Welcome to Recipe Manager.</h1>
+      <p>Join an awesome food community today.</p>
+    </div>
+  </div>
+<% end %>
+
+
