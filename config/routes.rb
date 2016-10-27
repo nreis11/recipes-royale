@@ -4,11 +4,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :courses, only: [:index, :show] do
+  resources :courses, only: [:show] do
     resources :recipes
   end
 
-  resources :ingredients, only: [:index, :show] do
+  resources :ingredients, only: [:show] do
     resources :recipes
   end
 
