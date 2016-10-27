@@ -1,2 +1,8 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1><%= @recipe.name.capitalize %></h1>
+Difficulty: <%= @recipe.difficulty %><br>
+Prep Time: <%= @recipe.prep_time %><br>
+Ingredients: <% @recipe_ingredients.each do |r_i| %>
+              <li><%= r_i.ingredient.name %>: <%= r_i.amount %> <%= r_i.measurement %></li>
+              <% end %>
+Direction: <%= @recipe.directions %><br>
+Creator: <%= @recipe.creator.first_name %><%= @recipe.creator.last_name  %>
