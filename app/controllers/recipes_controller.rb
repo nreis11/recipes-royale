@@ -4,8 +4,12 @@ class RecipesController < ApplicationController
   helper_method :current_user
 
   def index
+    if user_signed_in?
     @recipes = Recipe.all
     @user = current_user
+    else
+      @error = "Please sign in first"
+    end
   end
 
   def create
@@ -36,6 +40,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipes_path
   end
 
   private

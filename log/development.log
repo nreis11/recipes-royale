@@ -9309,3 +9309,325 @@ Processing by RecipesController#edit as HTML
 Completed 200 OK in 114ms (Views: 109.5ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/recipes/11/edit" for ::1 at 2016-10-28 11:42:48 -0700
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering recipes/edit.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.2ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  Rendered ingredients/_add_ingredient.html.erb (1.6ms)
+  Rendered recipes/edit.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 88.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/recipes/11/edit" for ::1 at 2016-10-28 11:55:11 -0700
+Processing by RecipesController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering recipes/edit.html.erb within layouts/application
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  Rendered ingredients/_add_ingredient.html.erb (2.5ms)
+  Rendered recipes/edit.html.erb within layouts/application (5.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 125ms (Views: 99.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 11:55:13 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 98ms (Views: 93.4ms | ActiveRecord: 0.9ms)
+
+
+Started DELETE "/recipes/11" for ::1 at 2016-10-28 11:55:14 -0700
+Processing by RecipesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"23+Y4W2j672BPDZn7cz8AoOtq3GkhJCL9ozuHP9dx0cchxz9BuMFEidJh85mljSLWaOWf71KtW4nJHiIgjFX7g==", "id"=>"11"}
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `recipe' for #<RecipesController:0x007fe7592e14e8>
+Did you mean?  recipe_url):
+  
+app/controllers/recipes_controller.rb:39:in `destroy'
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (162.1ms)
+Started GET "/recipes" for ::1 at 2016-10-28 11:56:00 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 126ms (Views: 96.1ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/recipes/11" for ::1 at 2016-10-28 11:56:02 -0700
+Processing by RecipesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8Zf1jfi8xN/fj05u0H0tTBv4BiEY6nLpoRlOVIMg+lk2b3GRk/wqcHn6/8dbJ+XFwfY7LwEkVwxwsdjA/kxq8A==", "id"=>"11"}
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `recipe' for #<RecipesController:0x007fe759cf2e78>
+Did you mean?  recipe_url):
+  
+app/controllers/recipes_controller.rb:39:in `destroy'
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (147.0ms)
+Started GET "/recipes" for ::1 at 2016-10-28 11:56:52 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 121ms (Views: 96.5ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/recipes/11" for ::1 at 2016-10-28 11:56:55 -0700
+Processing by RecipesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Vt+Rk/Mfw79Ku2MJF4ns7FZitBEsuH8jNQME7zZ+8P2RJxWPmF8tEOzO0qCc0yRljGyJHzV2Wsbkq5J7SxJgVA==", "id"=>"11"}
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE (11) LIMIT $1[0m  [["LIMIT", 1]]
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::DatatypeMismatch: ERROR:  argument of WHERE must be type boolean, not type integer
+LINE 1: SELECT  "recipes".* FROM "recipes" WHERE (11) LIMIT $1
+                                                  ^
+: SELECT  "recipes".* FROM "recipes" WHERE (11) LIMIT $1):
+  
+app/controllers/recipes_controller.rb:39:in `destroy'
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (108.9ms)
+Started DELETE "/recipes/11" for ::1 at 2016-10-28 11:57:09 -0700
+Processing by RecipesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Vt+Rk/Mfw79Ku2MJF4ns7FZitBEsuH8jNQME7zZ+8P2RJxWPmF8tEOzO0qCc0yRljGyJHzV2Wsbkq5J7SxJgVA==", "id"=>"11"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 11]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/recipes
+Completed 302 Found in 22ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 11:57:10 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 141ms (Views: 114.3ms | ActiveRecord: 4.7ms)
+
+
+Started DELETE "/recipes/12" for ::1 at 2016-10-28 11:57:14 -0700
+Processing by RecipesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"n1tn68Gu/y/7SwgDbLrMEtJoB/7dh7aU5jYPh/NpdPRYo+P3qu4RgF0+uarn4ASbCGY68MRJk3E3npkTjgXkXQ==", "id"=>"12"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = $1[0m  [["id", 12]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/recipes
+Completed 302 Found in 5ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 11:57:14 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 98ms (Views: 93.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 11:57:18 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 99ms (Views: 93.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 11:57:22 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 112ms (Views: 105.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2016-10-28 11:57:23 -0700
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered ingredients/index.html.erb within layouts/application (17.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 168ms (Views: 149.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/ingredients/4" for ::1 at 2016-10-28 11:57:26 -0700
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering ingredients/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_ingredients" ON "recipes"."id" = "recipe_ingredients"."recipe_id" WHERE "recipe_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 4]]
+  Rendered ingredients/show.html.erb within layouts/application (9.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 123ms (Views: 103.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 11:57:28 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 122ms (Views: 115.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 11:57:32 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 11:57:32 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (8.7ms)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 119ms (Views: 109.4ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-10-28 11:59:23 -0700
+Processing by Users::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ph7d0y25O8G4ksgPWq1ok3qpbXZmJYF4trB8pwAwXHpQq9jjNaS+R14rpxBHZQ2NLoo98dPJ4+m9fu7coXnI/g=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 87ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 11:59:23 -0700
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 96ms (Views: 91.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 11:59:29 -0700
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (4.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `first_name' for nil:NilClass):
+    1: <%= @error %>
+    2: <h1><%= @user.first_name %> Recipes</h1>
+    3: 
+    4: 
+    5: <% @user.recipes.each do |recipe| %>
+  
+app/views/recipes/index.html.erb:2:in `_app_views_recipes_index_html_erb__4050717579636973623_70315787521280'
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (18.6ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (109.2ms)
+Started GET "/recipes" for ::1 at 2016-10-28 12:00:33 -0700
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  Rendered recipes/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 79ms (Views: 77.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-10-28 12:00:37 -0700
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"QnsDUnQfm1BsTNBl4tf8eLU4MgV4lfkmSMoIG3tW6McIovafo5GfYBMyW5yv+qpNgBbIXxrzj+Z2M3tz3TxIIw=="}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 107ms (Views: 105.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-28 12:00:42 -0700
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4UaRzwCyMjTJQwGGNKgMfbeVcD9CqsMMHcDEQFljeKOrn2QC1zw2BLY9in95hVpIgruKZSDMtcwjObco/wnYRw==", "user"=>{"email"=>"m@m.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "m@m.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 188ms (ActiveRecord: 0.9ms)
+
+
+Processing by Users::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4UaRzwCyMjTJQwGGNKgMfbeVcD9CqsMMHcDEQFljeKOrn2QC1zw2BLY9in95hVpIgruKZSDMtcwjObco/wnYRw==", "user"=>{"email"=>"m@m.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 283ms (Views: 98.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-10-28 12:00:47 -0700
+Processing by Users::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Sd3me8ZdHpW6bkdmq84pG0UNg/EiZnmx4F2QRLBr17sDBBO2EdMapcUQzJ/m438ucCN5q0AAD3HepOMsFgF3Xw==", "user"=>{"email"=>"m@m.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "m@m.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["current_sign_in_at", 2016-10-28 19:00:47 UTC], ["sign_in_count", 2], ["updated_at", 2016-10-28 19:00:47 UTC], ["id", 3]]
+  [1m[35m (27.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 241ms (ActiveRecord: 28.8ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 12:00:47 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 12:00:47 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 107ms (Views: 98.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 12:00:49 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 103ms (Views: 88.7ms | ActiveRecord: 2.1ms)
+
+

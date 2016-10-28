@@ -1,9 +1,15 @@
+<% if !user_signed_in? %>
+<%= @error %>
+<% else %>
 <h1><%= @user.first_name %> Recipes</h1>
+
 
 <% @user.recipes.each do |recipe| %>
   <li>
     <%= link_to recipe.name, recipe_path(recipe) %>
     <%= link_to "edit", edit_recipe_path(recipe) %>
+    <%= link_to "delete", recipe_path(recipe), method: 'delete'%>
   </li>
+<% end %>
 <% end %>
 
