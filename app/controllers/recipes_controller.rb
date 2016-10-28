@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @ingredients = (Ingredient.all).order(:name)
     @course = Course.find(params[:course_id])
   end
 
