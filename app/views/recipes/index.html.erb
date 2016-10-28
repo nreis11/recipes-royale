@@ -1,15 +1,25 @@
 <% if !user_signed_in? %>
-<%= @error %>
+  <%= @error %>
 <% else %>
-<h1><%= @user.first_name %> Recipes</h1>
-
-
-<% @user.recipes.each do |recipe| %>
-  <li>
-    <%= link_to recipe.name, recipe_path(recipe) %>
-    <%= link_to "edit", edit_recipe_path(recipe) %>
-    <%= link_to "delete", recipe_path(recipe), method: 'delete'%>
-  </li>
-<% end %>
+  <div class="jumbotron recipe-hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="well">
+            <div class="row">
+              <h1 class="text-center"><%= @user.first_name %> Recipes</h1>
+              <div class="col-xs-12">
+              <% @user.recipes.each do |recipe| %>
+                <%= link_to recipe.name, recipe_path(recipe) %>
+                <%= link_to "edit", edit_recipe_path(recipe) %>
+                <%= link_to "delete", recipe_path(recipe), method: 'delete'%>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
