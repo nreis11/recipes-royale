@@ -1,0 +1,38 @@
+<form action='' method='POST'>
+  <div class="row">
+
+    <div class="col-xs-2">
+      <label for="ingredientAmount">amount</label>
+      <input type="text" class="form-control", name="ingredient[amount]">
+    </div>
+
+    <div class="col-xs-2">
+      <label for="measurementSelect">measurement</label>
+      <select class="form-control", id="measurementSelect", name="ingredient[measurement]">
+        <option value="tsp">tsp</option>
+        <option value="tbsp">tbsp</option>
+        <option value="grams">grams</option>
+        <option value="ounces">ounces</option>
+        <option value="cup">cup</option>
+        <option value="cups">cups</option>
+        <option value="mL">mL</option>
+        <option value="none">none</option>
+      </select>
+    </div>
+
+    <div class="col-xs-2">
+      <label for="ingredientObject">ingredient</label>
+      <select class="form-control", id="ingredientObject", name="ingredient[ingredient_id]">
+        <% @ingredients.each do |ingredient| %>
+          <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="col-xs-2">
+      <label for="addIngredient"> add</label>
+      <p><input type="submit" class="btn btn-primary" value="+"></p>
+    </div>
+
+  </div>
+</form>
