@@ -8,27 +8,58 @@ div.course-section {
   padding-right: 0;
 }
 
-a.btn-appetizer {
+a.btn-appetizer,
+div.appetizer-hero {
   background: url(https://static.pexels.com/photos/2666/food-restaurant-eat-snack.jpg) center center no-repeat;
 }
 
-a.btn-salad {
+a.btn-salad,
+div.salad-hero {
   background: url(https://static.pexels.com/photos/5928/salad-healthy-diet-spinach.jpg) center center no-repeat;
 }
 
-a.btn-main-course {
+a.btn-main-course,
+div.main-course-hero {
   background: url(https://static.pexels.com/photos/29408/pexels-photo-29408.jpg) center center no-repeat;
 }
 
-a.btn-dessert {
+a.btn-dessert,
+div.dessert-hero {
   background: url(https://static.pexels.com/photos/14107/pexels-photo-14107.jpeg) center center no-repeat;
 }
 
 a.btn-appetizer,
 a.btn-salad,
 a.btn-main-course,
-a.btn-dessert {
+a.btn-dessert,
+div.appetizer-hero,
+div.salad-hero,
+div.main-course-hero,
+div.dessert-hero {
   background-size: cover;
+}
+
+div.appetizer-hero h1,
+div.salad-hero h1,
+div.main-course-hero h1,
+div.dessert-hero h1 {
+  color: #fff;
+  text-shadow: 2px 2px 3px #000;
+  text-align: center;
+
+}
+
+div.appetizer-hero a,
+div.salad-hero a,
+div.main-course-hero a,
+div.dessert-hero a {
+  margin-bottom: 20px;
+}
+
+a.btn-appetizer,
+a.btn-salad,
+a.btn-main-course,
+a.btn-dessert {
   border-radius: 0;
   border: none;
   font-size: 18px;
@@ -45,5 +76,3 @@ a.btn-main-course:hover,
 a.btn-dessert:hover {
   opacity: .7;
 }
-
-
