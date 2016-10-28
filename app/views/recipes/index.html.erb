@@ -1,8 +1,9 @@
-<h1>Recipes#index</h1>
+<h1><%= @user.first_name %> Recipes</h1>
 
-<% @recipes.each do |recipe| %>
+<% @user.recipes.each do |recipe| %>
   <li>
     <%= link_to recipe.name, recipe_path(recipe) %>
+    <%= link_to "edit", edit_recipe_path(recipe) %>
   </li>
 <% end %>
 

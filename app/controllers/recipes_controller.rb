@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @user = current_user
   end
 
   def create
@@ -20,6 +21,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.recipe_ingredients
   end
 
   def show
@@ -28,6 +31,8 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @recipe = Recipe.update(recipe_params)
+    redirect_to recipe_path(@recipe)
   end
 
   def destroy
