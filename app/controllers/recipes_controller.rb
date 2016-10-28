@@ -13,8 +13,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = current_user.recipes.create(recipe_params)
-    @recipe.save!
+    @recipe = current_user.recipes.new(recipe_params)
+
     @recipe_ingredients = @recipe.recipe_ingredients
     if @recipe.save
       if request.xhr?
