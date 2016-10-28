@@ -8,10 +8,15 @@ nav.navbar {
   height: 800px;
   color: #fff;
   text-align: center;
+  margin-bottom: 0;
 }
 
 .home-hero h1 {
   margin-top: 175px;
+}
+
+.home-hero p {
+	font-size: 24px;
 }
 
 .home-hero h1,
@@ -50,4 +55,11 @@ nav.navbar {
 
 .footer-basic-centered .footer-links a {
 	display: inline-block;
+}
+
+/* media queries */
+@media (min-width: 769px) {
+	.home-hero p {
+		font-size: 30px;
+	}
 }
