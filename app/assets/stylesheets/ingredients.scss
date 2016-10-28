@@ -1,3 +1,11 @@
-// Place all the styles related to the Ingredients controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+div.ingredients-hero {
+	background: url(https://static.pexels.com/photos/130980/pexels-photo-130980.jpeg) center center no-repeat;
+	background-size: cover;
+	height: 800px;
+}
+
+div.ingredients-hero h1 {
+	color: #fff;
+	text-shadow: 2px 2px 3px #000;
+	margin-top: 75px;
+}
