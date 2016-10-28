@@ -1654,3 +1654,400 @@ Processing by CoursesController#index as HTML
 Completed 200 OK in 138ms (Views: 133.2ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/" for ::1 at 2016-10-28 13:52:00 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 55ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 13:52:01 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (20.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 658ms (Views: 630.1ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 13:52:03 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 181ms (Views: 169.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 13:52:11 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (39.0ms)
+Completed 200 OK in 164ms (Views: 142.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/recipes/42" for ::1 at 2016-10-28 13:52:13 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (1.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 42]]
+  Rendered recipes/_recipe_details.html.erb (22.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" ORDER BY "ingredients"."name" ASC[0m
+  Rendered ingredients/_add_ingredient.html.erb (15.7ms)
+  Rendered recipes/show.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 274ms (Views: 237.7ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 14:06:13 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 14:06:13 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 124ms (Views: 120.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:06:17 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 115ms (Views: 110.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:06:21 -0700
+Processing by RecipesController#create as JS
+  Parameters: {"authenticity_token"=>"G0+Pq7nGGKT4ryxv3g/1PgYomaewc5nlFHuiIT7DhBUqBRGsQNGNbAMOC48NNVa1b2iykj1c+4g8uxjjEpQgwA==", "recipe"=>{"course_id"=>"1", "name"=>"blah", "difficulty"=>"1", "prep_time"=>"3", "directions"=>"fdwger"}, "course_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 3], ["name", "blah"], ["directions", "fdwger"], ["created_at", 2016-10-28 21:06:21 UTC], ["updated_at", 2016-10-28 21:06:21 UTC]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering recipes/_recipe_details.html.erb
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 48]]
+  Rendered recipes/_recipe_details.html.erb (2.3ms)
+Completed 200 OK in 101ms (Views: 81.6ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:06:25 -0700
+Processing by RecipesController#create as JS
+  Parameters: {"authenticity_token"=>"G0+Pq7nGGKT4ryxv3g/1PgYomaewc5nlFHuiIT7DhBUqBRGsQNGNbAMOC48NNVa1b2iykj1c+4g8uxjjEpQgwA==", "recipe"=>{"course_id"=>"1", "name"=>"blah", "difficulty"=>"1", "prep_time"=>"3", "directions"=>"fdwger"}, "course_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 3], ["name", "blah"], ["directions", "fdwger"], ["created_at", 2016-10-28 21:06:25 UTC], ["updated_at", 2016-10-28 21:06:25 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering recipes/_recipe_details.html.erb
+  [1m[36mRecipeIngredient Load (0.4ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 49]]
+  Rendered recipes/_recipe_details.html.erb (3.5ms)
+Completed 200 OK in 85ms (Views: 69.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:06:27 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 82ms (Views: 78.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:06:32 -0700
+Processing by RecipesController#create as */*
+  Parameters: {"authenticity_token"=>"VkdD18j9HyPOpRCwS3hRmeTJXrnmbmGnfxO4GDd9VYxnDd3QMeqK6zUEN1CYQvISjYl1jGtBA8pX0wLaGyrxWQ==", "recipe"=>{"course_id"=>"1", "name"=>"sfsdgsda", "difficulty"=>"1", "prep_time"=>"1", "directions"=>"fgdfggs"}, "course_id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:06:32 -0700
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+Processing by RecipesController#create as JS
+  Parameters: {"authenticity_token"=>"VkdD18j9HyPOpRCwS3hRmeTJXrnmbmGnfxO4GDd9VYxnDd3QMeqK6zUEN1CYQvISjYl1jGtBA8pX0wLaGyrxWQ==", "recipe"=>{"course_id"=>"1", "name"=>"sfsdgsda", "difficulty"=>"1", "prep_time"=>"1", "directions"=>"fgdfggs"}, "course_id"=>"1"}
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 1], ["name", "sfsdgsda"], ["directions", "fgdfggs"], ["created_at", 2016-10-28 21:06:32 UTC], ["updated_at", 2016-10-28 21:06:32 UTC]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 1], ["name", "sfsdgsda"], ["directions", "fgdfggs"], ["created_at", 2016-10-28 21:06:32 UTC], ["updated_at", 2016-10-28 21:06:32 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (68.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering recipes/_recipe_details.html.erb
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mRecipeIngredient Load (70.4ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 50]]
+  Rendering recipes/_recipe_details.html.erb
+  Rendered recipes/_recipe_details.html.erb (74.7ms)
+Completed 200 OK in 184ms (Views: 76.2ms | ActiveRecord: 81.2ms)
+
+
+  [1m[36mRecipeIngredient Load (0.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 51]]
+  Rendered recipes/_recipe_details.html.erb (3.9ms)
+Completed 200 OK in 173ms (Views: 75.5ms | ActiveRecord: 82.1ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:06:38 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 97ms (Views: 92.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/recipes/11" for ::1 at 2016-10-28 14:06:39 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mRecipe Load (1.1ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  Rendered recipes/_recipe_details.html.erb (7.1ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" ORDER BY "ingredients"."name" ASC[0m
+  Rendered ingredients/_add_ingredient.html.erb (3.8ms)
+  Rendered recipes/show.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 147ms (Views: 137.2ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 14:07:01 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 14:07:01 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 119ms (Views: 114.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:07:02 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (2.0ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (2.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 183ms (Views: 176.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:07:06 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 89.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:07:11 -0700
+Processing by RecipesController#create as */*
+  Parameters: {"authenticity_token"=>"3QHy+0DU7AjjB/STq7G1bnwreHeyoxzHLZNCaui2FWzsS2z8ucN5wBim03N4ixblFWtTQj+MfqoFU/ioxOGxuQ==", "recipe"=>{"course_id"=>"1", "name"=>"dowgwegeg", "difficulty"=>"1", "prep_time"=>"1", "directions"=>"asffasas"}, "course_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:07:11 -0700
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by RecipesController#create as JS
+  Parameters: {"authenticity_token"=>"3QHy+0DU7AjjB/STq7G1bnwreHeyoxzHLZNCaui2FWzsS2z8ucN5wBim03N4ixblFWtTQj+MfqoFU/ioxOGxuQ==", "recipe"=>{"course_id"=>"1", "name"=>"dowgwegeg", "difficulty"=>"1", "prep_time"=>"1", "directions"=>"asffasas"}, "course_id"=>"1"}
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 1], ["name", "dowgwegeg"], ["directions", "asffasas"], ["created_at", 2016-10-28 21:07:11 UTC], ["updated_at", 2016-10-28 21:07:11 UTC]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCourse Load (1.0ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 1], ["name", "dowgwegeg"], ["directions", "asffasas"], ["created_at", 2016-10-28 21:07:11 UTC], ["updated_at", 2016-10-28 21:07:11 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering recipes/_recipe_details.html.erb
+  [1m[35m (67.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 52]]
+  Rendered recipes/_recipe_details.html.erb (3.9ms)
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 103ms (Views: 71.0ms | ActiveRecord: 12.2ms)
+
+
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering recipes/_recipe_details.html.erb
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 53]]
+  Rendered recipes/_recipe_details.html.erb (2.3ms)
+Completed 200 OK in 168ms (Views: 76.7ms | ActiveRecord: 74.8ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:07:40 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 131ms (Views: 123.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/recipes/32" for ::1 at 2016-10-28 14:07:41 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.4ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 32]]
+  Rendered recipes/_recipe_details.html.erb (9.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" ORDER BY "ingredients"."name" ASC[0m
+  Rendered ingredients/_add_ingredient.html.erb (2.3ms)
+  Rendered recipes/show.html.erb within layouts/application (24.5ms)
+Completed 200 OK in 165ms (Views: 154.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 14:07:46 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 14:07:46 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 107ms (Views: 103.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2016-10-28 14:07:48 -0700
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered ingredients/index.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 122ms (Views: 112.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/ingredients/2" for ::1 at 2016-10-28 14:07:49 -0700
+Processing by IngredientsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering ingredients/show.html.erb within layouts/application
+  [1m[36mRecipe Load (1.0ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" INNER JOIN "recipe_ingredients" ON "recipes"."id" = "recipe_ingredients"."recipe_id" WHERE "recipe_ingredients"."ingredient_id" = $1[0m  [["ingredient_id", 2]]
+  Rendered ingredients/show.html.erb within layouts/application (13.1ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 188ms (Views: 168.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/ingredients/2/recipes/8" for ::1 at 2016-10-28 14:07:51 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"ingredient_id"=>"2", "id"=>"8"}
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (1.7ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 8]]
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mIngredient Load (1.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  Rendered recipes/_recipe_details.html.erb (42.6ms)
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 189ms (Views: 173.2ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 14:07:57 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 14:07:57 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (6.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (10.5ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 185ms (Views: 172.4ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:08:31 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 142ms (Views: 135.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/recipes/30" for ::1 at 2016-10-28 14:08:35 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 30]]
+  Rendered recipes/_recipe_details.html.erb (6.0ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" ORDER BY "ingredients"."name" ASC[0m
+  Rendered ingredients/_add_ingredient.html.erb (2.8ms)
+  Rendered recipes/show.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 126ms (Views: 117.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:09:52 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (1.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 132ms (Views: 124.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:09:55 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 118ms (Views: 112.7ms | ActiveRecord: 1.4ms)
+
+
