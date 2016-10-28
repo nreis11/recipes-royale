@@ -1,3 +1,5 @@
+/* course image button styling */
+
 .btn-course {
   height: 400px;
   position: relative;
@@ -8,6 +10,7 @@ div.course-section {
   padding-right: 0;
 }
 
+/* course image jumbotron backgrounds */
 a.btn-appetizer,
 div.appetizer-hero {
   background: url(https://static.pexels.com/photos/2666/food-restaurant-eat-snack.jpg) center center no-repeat;
@@ -28,6 +31,7 @@ div.dessert-hero {
   background: url(https://static.pexels.com/photos/14107/pexels-photo-14107.jpeg) center center no-repeat;
 }
 
+/* course index styling */
 a.btn-appetizer,
 a.btn-salad,
 a.btn-main-course,
@@ -56,18 +60,28 @@ div.dessert-hero a {
   margin-bottom: 20px;
 }
 
+/* course index 'add a recipe' btn styling */
 a.btn-appetizer,
 a.btn-salad,
 a.btn-main-course,
 a.btn-dessert {
   border-radius: 0;
   border: none;
-  font-size: 18px;
+  font-size: 40px;
+  padding-top: 30px;
+  text-shadow: 2px 2px 3px #000;
+  font-weight: bold;
 }
 
 a.btn-add-recipe {
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 0;
+  padding: 15px 0;
+  display: inline-block;
+  text-align: center;
 }
 
 a.btn-appetizer:hover,
@@ -75,4 +89,36 @@ a.btn-salad:hover,
 a.btn-main-course:hover,
 a.btn-dessert:hover {
   opacity: .7;
+}
+
+/* course show styling */
+
+.course-show-section {
+  height: 800px;
+}
+
+.course-show-section .well {
+  background: rgba(255,255,255,.9);
+}
+
+div.course-show-section h1 {
+  margin-bottom: 30px;
+  color: #333;
+  text-shadow: none;
+}
+
+.course-show-section a {
+  font-size: 20px;
+}
+
+/* media queries */
+@media (min-width: 769px) {
+
+  .btn-course {
+    height: 700px;
+  }
+
+  div.course-show-section h1 {
+    font-size: 40px;
+  }
 }
