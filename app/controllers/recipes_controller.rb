@@ -10,9 +10,18 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.create(recipe_params)
-    @recipe.save
-
-    redirect_to course_recipe_url(@recipe.course, @recipe)
+    @recipe.save!
+    @recipe_ingredients = @recipe.recipe_ingredients
+    if @recipe.save
+      if request.xhr?
+        render :layout => false, :file => 'app/views/recipes/_recipe_details'
+        # render partial: "recipe_details"
+      else
+        redirect_to course_recipe_url(@recipe.course, @recipe)
+      end
+    else
+      redirect_to new_course_recipe_url(@recipe.course, @recipe)
+    end
   end
 
   def new

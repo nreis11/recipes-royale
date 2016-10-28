@@ -4,8 +4,10 @@
       <p><strong>Prep Time:</strong> <%= @recipe.prep_time %> minutes</p>
       <p><strong>Ingredients:</strong></p>
       <ul>
-      <% @recipe_ingredients.each do |r_i| %>
-        <li><%= r_i.ingredient.name %> (<%= r_i.amount %> <%= r_i.measurement %>)</li>
+      <% if @recipe_ingredients  %>
+        <% @recipe_ingredients.each do |r_i| %>
+          <li><%= r_i.ingredient.name %> (<%= r_i.amount %> <%= r_i.measurement %>)</li>
+        <% end %>
       <% end %>
       </ul>
       <p><strong>Directions:</strong> <%= @recipe.directions %></p>
