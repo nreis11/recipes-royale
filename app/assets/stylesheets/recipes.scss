@@ -1,3 +1,13 @@
-// Place all the styles related to the Recipes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+div.recipe-hero {
+  background: url(https://static.pexels.com/photos/106877/pexels-photo-106877.jpeg) center center no-repeat;
+}
+
+div.recipe-hero {
+	background-size: cover;
+	height: 800px;
+}
+
+div.recipe-hero .well {
+	background: rgba(255,255,255,0.9);
+	margin-top: 50px;
+}
