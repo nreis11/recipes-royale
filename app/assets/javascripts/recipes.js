@@ -5,7 +5,6 @@ $(function() {
 var submitRecipeListener = function() {
   $("#add-recipe-form").on("submit", function(event) {
     event.preventDefault();
-    console.log("Success!");
 
     var submitRecipeTarget = $(this);
     var submitRecipeParent = $(this).parent();
@@ -20,7 +19,6 @@ var submitRecipeListener = function() {
     });
 
     request.done(function(response) {
-       console.log(response);
       submitRecipeTarget.replaceWith(response);
     });
 
