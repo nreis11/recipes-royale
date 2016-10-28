@@ -1,21 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-      <div class="col-md-3 course-section">
-        <%= link_to @courses[0].name, course_path(@courses[0]), class: 'btn btn-block btn-primary btn-course btn-appetizer' %>
-        <%= link_to 'Add a Recipe', new_course_recipe_path(@courses[0]), class: 'btn-add-recipe btn btn-block btn-primary' %>
-      </div>
-      <div class="col-md-3 course-section">
-        <%= link_to @courses[1].name, course_path(@courses[1]), class: 'btn btn-block btn-primary btn-course btn-salad' %>
-        <%= link_to 'Add a Recipe', new_course_recipe_path(@courses[1]), class: 'btn-add-recipe btn btn-block btn-primary' %>
-      </div>
-      <div class="col-md-3 course-section">
-        <%= link_to @courses[2].name, course_path(@courses[2]), class: 'btn btn-block btn-primary btn-course btn-main-course' %>
-        <%= link_to 'Add a Recipe', new_course_recipe_path(@courses[2]), class: 'btn-add-recipe btn btn-block btn-primary' %>
-      </div>
-      <div class="col-md-3 course-section">
-        <%= link_to @courses[3].name, course_path(@courses[3]), class: 'btn btn-block btn-primary btn-course btn-dessert' %>
-        <%= link_to 'Add a Recipe', new_course_recipe_path(@courses[3]), class: 'btn-add-recipe btn btn-block btn-primary' %>
-      </div>
+    <% @courses.each do |course| %>
+    <div class="col-md-3 course-section">
+      <%= link_to course.name, course_path(course), class: "btn btn-block btn-primary btn-course btn-#{course.name.gsub(/\s+/,'-').downcase}" %>
+      <%= link_to 'Add a Recipe', new_course_recipe_path(course), class: 'btn-add-recipe btn btn-block btn-primary' %>
+    </div>
+    <% end %>
   </div>
-  </ul>
 </div>
