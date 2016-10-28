@@ -1,4 +1,5 @@
 $(function() {
+  $("#ingredientRecipes").hide();
   submitRecipeListener();
 });
 
@@ -20,6 +21,7 @@ var submitRecipeListener = function() {
 
     request.done(function(response) {
       submitRecipeTarget.replaceWith(response);
+      $("#ingredientRecipes").show();
     });
 
   });
