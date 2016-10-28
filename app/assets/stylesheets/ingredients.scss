@@ -1,3 +1,4 @@
+/* ingredients index page */
 div.ingredients-hero {
 	background: url(https://static.pexels.com/photos/130980/pexels-photo-130980.jpeg) center center no-repeat;
 	background-size: cover;
@@ -8,4 +9,29 @@ div.ingredients-hero h1 {
 	color: #fff;
 	text-shadow: 2px 2px 3px #000;
 	margin-top: 75px;
+}
+
+/* ingredients show page */
+.ingredients-show-section {
+  height: 800px;
+  text-align: center;
+  background: url(https://static.pexels.com/photos/129523/pexels-photo-129523.jpeg) center center no-repeat;
+}
+
+.ingredients-show-section {
+	background-size: cover;
+}
+
+.ingredients-show-section .well {
+  background: rgba(255,255,255,.9);
+}
+
+div.ingredients-show-section h1 {
+  margin-bottom: 30px;
+  color: #333;
+  text-shadow: none;
+}
+
+.ingredients-show-section a {
+  font-size: 20px;
 }

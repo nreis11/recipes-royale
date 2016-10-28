@@ -6,27 +6,31 @@
     <input type="hidden" name="recipe[course_id]" value="<%= @course.id %>">
 
     <div class="form-group">
-      <label for="recipeName">Recipe Name</label>
-      <input type="text" class="form-control", id="recipeName", aria-describedby="recipeHelp" placeholder="Enter Name of Recipe" name="recipe[name]">
-      <small id="recipeHelp" class="form-text text-muted">Bad: Nachos; Good: Flamin' Hot Nachos</small>
+      <div class="col-xs-12">
+        <label for="recipeName">Recipe Name</label>
+        <input type="text" class="form-control", id="recipeName", aria-describedby="recipeHelp" placeholder="Enter Name of Recipe" name="recipe[name]">
+        <small id="recipeHelp" class="form-text text-muted"><strong>Bad:</strong> Nachos | <strong>Good:</strong> Flamin' Hot Nachos</small><br>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="difficultySelect">Difficulty Level</label>
-      <select class="form-control" id="difficultySelect" name="recipe[difficulty]">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-      <small id="difficultyHelp" class="form-text text-muted">1-Easiest; 5-Most Difficult</small>
-    </div>
+      <div class="col-sm-6">
+        <label for="difficultySelect">Difficulty Level</label>
+        <select class="form-control" id="difficultySelect" name="recipe[difficulty]">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <small id="difficultyHelp" class="form-text text-muted"><strong>1</strong> (<em>Easiest</em>) | <strong>5</strong> (<em>Most Difficult</em>)</small>
+      </div>
 
-    <div class="form-group">
-      <label for="prepTime">Prep Time</label>
-      <input type="text" class="form-control", id="prepTime", aria-describedby="prepTimeHelp" placeholder="120" name="recipe[prep_time]">
-      <small id="recipeHelp" class="form-text text-muted">Enter time in minutes</small>
+      <div class="col-sm-6">
+        <label for="prepTime">Prep Time</label>
+        <input type="text" class="form-control", id="prepTime", aria-describedby="prepTimeHelp" placeholder="120" name="recipe[prep_time]">
+        <small id="recipeHelp" class="form-text text-muted">Enter time in minutes</small>
+      </div>
     </div>
 
     <div class="form-group">
@@ -36,10 +40,11 @@
 
     <input type="submit" class="btn btn-primary">
 
-  </form>
+  </form><br>
 
+  <h2>Add Ingredients</h2>
   <div id="ingredientRecipes">
     <%= render "ingredients/add_ingredient"  %>
-  </div>
+  </div><br>
 
 </div>
