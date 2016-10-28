@@ -1,7 +1,10 @@
-<h1>Courses INDEX!</h1>
-
-<ul>
-<% @courses.each do |course| %>
-  <li><%= link_to course.name, course_path(course) %></li>
-<% end %>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+    <% @courses.each do |course| %>
+    <div class="col-md-3 course-section">
+      <%= link_to course.name, course_path(course), class: "btn btn-block btn-primary btn-course btn-#{course.name.gsub(/\s+/,'-').downcase}" %>
+      <%= link_to 'Add a Recipe', new_course_recipe_path(course), class: 'btn-add-recipe btn btn-block btn-primary' %>
+    </div>
+    <% end %>
+  </div>
+</div>
