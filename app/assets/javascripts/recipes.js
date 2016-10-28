@@ -26,7 +26,6 @@ var submitRecipeListener = function() {
   })
 
   request.done(function(response) {
-    console.log("success")
-
+    $(this).replaceWith(response)
   })
 }
