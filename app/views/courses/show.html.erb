@@ -1,11 +1,17 @@
-<div class="jumbotron <%= @course.name.gsub(/\s+/,'-').downcase%>-hero">
+<div class="jumbotron <%= @course.name.gsub(/\s+/,'-').downcase%>-hero course-show-section">
   <div class="container">
     <div class="row">
-      <h1><%= @course.name %></h1>
       <div class="col-sm-6 col-sm-offset-3">
-      <% @recipes.each do |recipe| %>
-        <%= link_to recipe.name, course_recipe_path(@course, recipe), class: 'btn btn-block btn-default btn-recipe' %>
-      <% end %>
+        <div class="well">
+      <div class="row">
+        <h1><%= @course.name %> Recipes</h1>
+          <div class="col-xs-12">
+          <% @recipes.each do |recipe| %>
+            <%= link_to recipe.name, course_recipe_path(@course, recipe), class: 'btn btn-block btn-primary btn-recipe' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
       </div>
     </div>
   </div>
