@@ -20,15 +20,6 @@ class RecipesController < ApplicationController
       redirect_to course_recipe_url(@recipe.course, @recipe)
     else
       redirect_to new_course_recipe_url(@recipe.course, @recipe)
-    #   if request.xhr?
-    #     render :layout => false, :file => 'app/views/recipes/_recipe_details'
-    #     # render partial: "recipe_details"
-    #   else
-    #     redirect_to course_recipe_url(@recipe.course, @recipe)
-    #   end
-    # else
-    #   redirect_to new_course_recipe_url(@recipe.course, @recipe)
-    # end
     end
   end
 
@@ -39,7 +30,8 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    @ingredients = @recipe.recipe_ingredients
+    @ingredients = (Ingredient.all).order(:name)
+    @recipe_ingredients = @recipe.recipe_ingredients
   end
 
   def show
@@ -56,6 +48,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
+    @recipe.recipe_ingredients.destroy_all
     @recipe.destroy
     redirect_to recipes_path
   end

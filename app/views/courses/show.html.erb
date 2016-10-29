@@ -6,7 +6,7 @@
           <div class="row">
             <h1><%= @course.name %> Recipes</h1>
               <div class="col-xs-12">
-              <% @recipes.each do |recipe| %>
+              <% @recipes[0...8].each do |recipe| %>
                 <%= link_to recipe.name, course_recipe_path(@course, recipe), class: 'btn btn-block btn-primary btn-recipe' %>
               <% end %>
             </div>
