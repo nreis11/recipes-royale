@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   }
 
   resources :courses, only: [:index, :show] do
-    resources :recipes
+    resources :recipes do
+      resources :recipe_ingredients, only: [:new, :create, :edit, :update, :destroy]
+    end
   end
 
   resources :ingredients, only: [:index, :show] do
