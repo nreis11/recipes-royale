@@ -30,8 +30,8 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    @ingredients = @recipe.recipe_ingredients
-
+    @ingredients = (Ingredient.all).order(:name)
+    @recipe_ingredients = @recipe.recipe_ingredients
   end
 
   def show
