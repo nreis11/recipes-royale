@@ -1,14 +1,15 @@
-<form action='' method='POST'>
+<form action='<%= course_recipe_recipe_ingredients_path(@course, @recipe) %>' method='POST'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
 
     <div class="col-xs-2">
       <label for="ingredientAmount">amount</label>
-      <input type="text" class="form-control", name="ingredient[amount]">
+      <input type="text" class="form-control", name="recipe_ingredient[amount]">
     </div>
 
     <div class="col-xs-2">
       <label for="measurementSelect">measurement</label>
-      <select class="form-control", id="measurementSelect", name="ingredient[measurement]">
+      <select class="form-control", id="measurementSelect", name="recipe_ingredient[measurement]">
         <option value="tsp">tsp</option>
         <option value="tbsp">tbsp</option>
         <option value="grams">grams</option>
@@ -22,7 +23,7 @@
 
     <div class="col-xs-2">
       <label for="ingredientObject">ingredient</label>
-      <select class="form-control", id="ingredientObject", name="ingredient[ingredient_id]">
+      <select class="form-control", id="ingredientObject", name="recipe_ingredient[ingredient_id]">
         <% @ingredients.each do |ingredient| %>
           <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
         <% end %>

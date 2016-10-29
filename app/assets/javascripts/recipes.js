@@ -1,6 +1,6 @@
 $(function() {
-  $("#ingredientRecipes").hide();
-  submitRecipeListener();
+  // $("#ingredientRecipes").hide();
+  // submitRecipeListener();
 });
 
 var submitRecipeListener = function() {

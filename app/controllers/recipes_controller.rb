@@ -17,14 +17,18 @@ class RecipesController < ApplicationController
 
     @recipe_ingredients = @recipe.recipe_ingredients
     if @recipe.save
-      if request.xhr?
-        render :layout => false, :file => 'app/views/recipes/_recipe_details'
-        # render partial: "recipe_details"
-      else
-        redirect_to course_recipe_url(@recipe.course, @recipe)
-      end
+      redirect_to course_recipe_url(@recipe.course, @recipe)
     else
       redirect_to new_course_recipe_url(@recipe.course, @recipe)
+    #   if request.xhr?
+    #     render :layout => false, :file => 'app/views/recipes/_recipe_details'
+    #     # render partial: "recipe_details"
+    #   else
+    #     redirect_to course_recipe_url(@recipe.course, @recipe)
+    #   end
+    # else
+    #   redirect_to new_course_recipe_url(@recipe.course, @recipe)
+    # end
     end
   end
 
@@ -39,6 +43,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @course = Course.find(params[:course_id])
     @ingredients = (Ingredient.all).order(:name)
     @recipe = Recipe.find(params[:id])
     @recipe_ingredients = @recipe.recipe_ingredients
