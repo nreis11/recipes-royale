@@ -35,9 +35,9 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:course_id])
     @ingredients = (Ingredient.all).order(:name)
     @recipe = Recipe.find(params[:id])
+    @course = Course.find(@recipe.course_id)
     @recipe_ingredients = @recipe.recipe_ingredients
   end
 
