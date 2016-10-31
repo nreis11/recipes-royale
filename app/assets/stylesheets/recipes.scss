@@ -20,3 +20,8 @@ div.new-recipe-hero .well {
 div.recipe-hero .page-header {
 	border-bottom: 1px solid #aaa;
 }
+
+div.scrollable {
+	height: 600px;
+	overflow-x: hidden;
+}
