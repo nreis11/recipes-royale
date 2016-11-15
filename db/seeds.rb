@@ -34,12 +34,31 @@ measurements_ary = [ 'tsp',
 ##  users  ##
 #############
 
-5.times do
- User.create( first_name: Faker::Name.first_name,
-              last_name: Faker::Name.last_name,
-              email: Faker::Internet.email,
-              password: 'banana')
-end
+
+User.create( first_name: Jenny,
+             last_name: Smith,
+             email: js@jenny.com,
+             password: 'banana')
+
+User.create( first_name: Greg,
+             last_name: Adams,
+             email: ga@greg.com,
+             password: 'banana')
+
+User.create( first_name: Taylor,
+             last_name: King,
+             email: tk@taylor.com,
+             password: 'banana')
+
+User.create( first_name: Lori,
+             last_name: Tanner,
+             email: lt@lori.com,
+             password: 'banana')
+
+User.create( first_name: Don,
+             last_name: Rutter,
+             email: dr@don.com,
+             password: 'banana')
 
 ##############
 ##  user 1  ##
