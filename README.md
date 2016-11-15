@@ -1,4 +1,4 @@
-# [Recipe Manager](https://salty-cliffs-79330.herokuapp.com)
+# [Recipes Royal](https://salty-cliffs-79330.herokuapp.com)
 A mobile-friendly web app built on rails by 4 Dev Bootcamp studnets in 3 days.
 
 ### Mock Client Project Prompt:
