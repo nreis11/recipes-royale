@@ -1,0 +1,12 @@
+<div class="jumbotron ingredients-hero">
+	<div class="container">
+		<h1 class="page-header text-center">Find A Recipe By Ingredient</h1>
+		<div class="row">
+			<% @ingredients.each do |ingredient| %>
+			<div class="col-xs-6 col-sm-3 well">
+				<p><%= link_to ingredient.name, ingredient_path(ingredient), class: 'btn btn-default btn-block btn-lg'%></p>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

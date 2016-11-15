@@ -1,0 +1,27 @@
+div.new-recipe-hero {
+	background: url(https://static.pexels.com/photos/129523/pexels-photo-129523.jpeg) center center fixed no-repeat;
+}
+
+div.recipe-hero {
+  background: url(https://static.pexels.com/photos/106877/pexels-photo-106877.jpeg) center center fixed no-repeat;
+}
+
+div.recipe-hero,
+div.new-recipe-hero {
+	background-size: cover;
+	height: 800px;
+}
+
+div.recipe-hero .well,
+div.new-recipe-hero .well {
+	background: rgba(255,255,255,0.9);
+}
+
+div.recipe-hero .page-header {
+	border-bottom: 1px solid #aaa;
+}
+
+div.scrollable {
+	height: 600px;
+	overflow-x: hidden;
+}

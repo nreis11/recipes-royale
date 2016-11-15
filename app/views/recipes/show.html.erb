@@ -1,0 +1,15 @@
+<div class="jumbotron recipe-hero">
+	<div class="container">
+		<div class="well">
+			<%= render "recipes/recipe_details" %>
+
+			<% if current_user == @recipe.creator %>
+		    <div id="ingredientRecipes">
+		      <h2>Add Ingredients</h2>
+		      <%= render "ingredients/add_ingredient"  %>
+		    </div>
+		  <% end %>
+
+		</div>
+	</div>
+</div>

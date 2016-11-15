@@ -1,179 +1,316 @@
-  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (22.6ms)[0m  [1m[35mCREATE TABLE "courses" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" serial primary key, "recipe_id" integer, "rater_id" integer, "value" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" serial primary key, "recipe_id" integer, "ingredient_id" integer, "amount" integer, "measurement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" serial primary key, "creator_id" integer, "course_id" integer, "difficulty" integer, "prep_time" integer, "name" character varying, "directions" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (37.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "appetizer_time" timestamp, "salad_time" timestamp, "main_course_time" timestamp, "dessert_time" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
-  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
-  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (0.6ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
-  [1m[35m (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161026220729')[0m
-  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161026192716'), ('20161026220635'), ('20161026220650'), ('20161026220657'), ('20161026220705');
+Started GET "/recipes" for ::1 at 2016-10-28 14:18:40 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 616ms (Views: 556.7ms | ActiveRecord: 12.6ms)
 
-[0m
-  [1m[35m (18.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-27 16:51:43 UTC], ["updated_at", 2016-10-27 16:51:43 UTC]]
-  [1m[35m (15.9ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "courses" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" serial primary key, "name" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ratings" ("id" serial primary key, "recipe_id" integer, "rater_id" integer, "value" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (3.8ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" serial primary key, "recipe_id" integer, "ingredient_id" integer, "amount" integer, "measurement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "recipes" ("id" serial primary key, "creator_id" integer, "course_id" integer, "difficulty" integer, "prep_time" integer, "name" character varying, "directions" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "first_name" character varying, "last_name" character varying, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "appetizer_time" timestamp, "salad_time" timestamp, "main_course_time" timestamp, "dessert_time" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
-  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
-  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
-  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20161026220729')[0m
-  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20161026192716'), ('20161026220635'), ('20161026220650'), ('20161026220657'), ('20161026220705');
 
-[0m
-  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-10-27 16:51:43 UTC], ["updated_at", 2016-10-27 16:51:43 UTC]]
-  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Started GET "/" for ::1 at 2016-10-27 09:52:52 -0700
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/recipes" for ::1 at 2016-10-28 14:20:42 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 142ms (Views: 137.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:22:00 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 134ms (Views: 127.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:22:21 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.9ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 138ms (Views: 131.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:22:33 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 83ms (Views: 76.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:23:26 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 136ms (Views: 131.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:23:38 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 152ms (Views: 148.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:23:42 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 86ms (Views: 81.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:25:06 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 84ms (Views: 79.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:25:13 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 94ms (Views: 87.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 14:26:34 -0700
 Processing by HomeController#index as HTML
-  Rendering home/index.html.erb within layouts/application
-  Rendered home/index.html.erb within layouts/application (2.0ms)
-Completed 200 OK in 1038ms (Views: 1005.2ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
 
 
-Started GET "/courses/1" for ::1 at 2016-10-27 09:56:37 -0700
-Processing by CoursesController#show as HTML
-  Parameters: {"id"=>"1"}
-  Rendering courses/show.html.erb within layouts/application
-  Rendered courses/show.html.erb within layouts/application (1.0ms)
-Completed 200 OK in 166ms (Views: 160.3ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/courses" for ::1 at 2016-10-27 10:08:09 -0700
-  
-AbstractController::ActionNotFound (The action 'index' could not be found for CoursesController):
-  
-actionpack (5.0.0.1) lib/abstract_controller/base.rb:121:in `process'
-actionview (5.0.0.1) lib/action_view/rendering.rb:30:in `process'
-actionpack (5.0.0.1) lib/action_controller/metal.rb:190:in `dispatch'
-actionpack (5.0.0.1) lib/action_controller/metal.rb:262:in `dispatch'
-actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
-actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
-actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
-actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
-actionpack (5.0.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
-actionpack (5.0.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
-warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
-warden (1.2.6) lib/warden/manager.rb:34:in `catch'
-warden (1.2.6) lib/warden/manager.rb:34:in `call'
-rack (2.0.1) lib/rack/etag.rb:25:in `call'
-rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
-rack (2.0.1) lib/rack/head.rb:12:in `call'
-rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
-rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
-activerecord (5.0.0.1) lib/active_record/migration.rb:552:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
-activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
-activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
-activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
-web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
-web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
-railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/method_override.rb:22:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
-puma (3.6.0) lib/puma/configuration.rb:225:in `call'
-puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
-puma (3.6.0) lib/puma/server.rb:415:in `process_client'
-puma (3.6.0) lib/puma/server.rb:275:in `block in run'
-puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
-  Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
-  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.6ms)
-Started GET "/courses" for ::1 at 2016-10-27 10:10:53 -0700
+Started GET "/courses" for ::1 at 2016-10-28 14:26:34 -0700
 Processing by CoursesController#index as HTML
   Rendering courses/index.html.erb within layouts/application
-  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
-  Rendered courses/index.html.erb within layouts/application (4.5ms)
-Completed 200 OK in 43ms (Views: 34.1ms | ActiveRecord: 2.1ms)
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (15.0ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 109ms (Views: 95.3ms | ActiveRecord: 6.4ms)
 
 
-  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Appetizer"], ["created_at", 2016-10-27 17:16:12 UTC], ["updated_at", 2016-10-27 17:16:12 UTC]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Salad"], ["created_at", 2016-10-27 17:16:12 UTC], ["updated_at", 2016-10-27 17:16:12 UTC]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Main Course"], ["created_at", 2016-10-27 17:16:12 UTC], ["updated_at", 2016-10-27 17:16:12 UTC]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Dessert"], ["created_at", 2016-10-27 17:16:12 UTC], ["updated_at", 2016-10-27 17:16:12 UTC]]
-  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/courses" for ::1 at 2016-10-28 14:26:41 -0700
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
   [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
-Started GET "/courses" for ::1 at 2016-10-27 10:16:37 -0700
+  Rendered courses/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 68.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:26:43 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (2.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 118ms (Views: 107.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/ingredients" for ::1 at 2016-10-28 14:27:24 -0700
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.8ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered ingredients/index.html.erb within layouts/application (15.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 124ms (Views: 108.2ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/ingredients" for ::1 at 2016-10-28 14:27:45 -0700
+Processing by IngredientsController#index as HTML
+  Rendering ingredients/index.html.erb within layouts/application
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  Rendered ingredients/index.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 90.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 14:29:38 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 14:29:38 -0700
 Processing by CoursesController#index as HTML
   Rendering courses/index.html.erb within layouts/application
   [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
-  Rendered courses/index.html.erb within layouts/application (13.4ms)
-Completed 500 Internal Server Error in 26ms (ActiveRecord: 4.7ms)
+  Rendered courses/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 111ms (Views: 107.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:29:39 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (1.5ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 137ms (Views: 126.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:30:29 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/new.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 81.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:31:28 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered ingredients/_add_ingredient.html.erb (4.6ms)
+  Rendered recipes/new.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.4ms)
 
 
   
-ActionView::Template::Error (undefined method `name' for nil:NilClass):
-    2: 
-    3: <ul>
-    4: <% @courses.each do |course| %>
-    5:   <li><%= @course.name %></li>
-    6: <% end %>
-    7: </ul>
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    23:     <div class="col-xs-2">
+    24:       <label for="ingredientObject">ingredient</label>
+    25:       <select class="form-control", id="ingredientObject", name="ingredient[ingredient_id]">
+    26:         <% @ingredients.each do |ingredient| %>
+    27:           <option value="<%= ingredient.id %>"><%= ingredient.name %></option>
+    28:         <% end %>
+    29:       </select>
   
-app/views/courses/index.html.erb:5:in `block in _app_views_courses_index_html_erb___2259925375290451607_70156980348240'
-app/views/courses/index.html.erb:4:in `_app_views_courses_index_html_erb___2259925375290451607_70156980348240'
+app/views/ingredients/_add_ingredient.html.erb:26:in `_app_views_ingredients__add_ingredient_html_erb__4341851269453677734_70338110725300'
+app/views/recipes/new.html.erb:63:in `_app_views_recipes_new_html_erb___634038774313864929_70338155650560'
   Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
   Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
-  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
   Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
-  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
   Rendering /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
-  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
-  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (104.7ms)
-Started GET "/courses" for ::1 at 2016-10-27 10:16:49 -0700
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (105.9ms)
+Started GET "/courses/1/recipes/new" for ::1 at 2016-10-28 14:31:55 -0700
+Processing by RecipesController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" ORDER BY "ingredients"."name" ASC[0m
+  Rendered ingredients/_add_ingredient.html.erb (8.3ms)
+  Rendered recipes/new.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 157ms (Views: 128.4ms | ActiveRecord: 10.7ms)
+
+
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:32:00 -0700
+Processing by RecipesController#create as */*
+  Parameters: {"authenticity_token"=>"RrDKIKiCdzXgJ2AkLai6BeSXaY71pag4EJYdMR48mYB3+lQnUZXi/RuGR8T+khmOjddCu3iKylU4VqfzMms9VQ==", "recipe"=>{"course_id"=>"1", "name"=>"asjhfdj", "difficulty"=>"1", "prep_time"=>"23", "directions"=>"dfsd"}, "course_id"=>"1"}
+Started POST "/courses/1/recipes" for ::1 at 2016-10-28 14:32:00 -0700
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by RecipesController#create as JS
+  Parameters: {"authenticity_token"=>"RrDKIKiCdzXgJ2AkLai6BeSXaY71pag4EJYdMR48mYB3+lQnUZXi/RuGR8T+khmOjddCu3iKylU4VqfzMms9VQ==", "recipe"=>{"course_id"=>"1", "name"=>"asjhfdj", "difficulty"=>"1", "prep_time"=>"23", "directions"=>"dfsd"}, "course_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCourse Load (2.4ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCourse Load (1.9ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 23], ["name", "asjhfdj"], ["directions", "dfsd"], ["created_at", 2016-10-28 21:32:00 UTC], ["updated_at", 2016-10-28 21:32:00 UTC]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "recipes" ("creator_id", "course_id", "difficulty", "prep_time", "name", "directions", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["creator_id", 3], ["course_id", 1], ["difficulty", 1], ["prep_time", 23], ["name", "asjhfdj"], ["directions", "dfsd"], ["created_at", 2016-10-28 21:32:00 UTC], ["updated_at", 2016-10-28 21:32:00 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering recipes/_recipe_details.html.erb
+  Rendering recipes/_recipe_details.html.erb
+  [1m[36mRecipeIngredient Load (1.6ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 54]]
+  Rendered recipes/_recipe_details.html.erb (4.4ms)
+Completed 200 OK in 203ms (Views: 139.8ms | ActiveRecord: 16.2ms)
+
+
+  [1m[36mRecipeIngredient Load (1.2ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 55]]
+  Rendered recipes/_recipe_details.html.erb (3.6ms)
+Completed 200 OK in 211ms (Views: 69.7ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/recipes" for ::1 at 2016-10-28 14:32:24 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (7.3ms)
+Started GET "/recipes" for ::1 at 2016-10-28 14:32:24 -0700
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[36mRecipe Load (13.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."creator_id" = $1[0m  [["creator_id", 3]]
+  Rendered recipes/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 165ms (Views: 160.3ms | ActiveRecord: 1.0ms)
+
+
+Completed 200 OK in 165ms (Views: 141.9ms | ActiveRecord: 17.2ms)
+
+
+Started GET "/recipes/11" for ::1 at 2016-10-28 14:32:25 -0700
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.9ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = $1[0m  [["recipe_id", 11]]
+  Rendered recipes/_recipe_details.html.erb (9.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" ORDER BY "ingredients"."name" ASC[0m
+  Rendered ingredients/_add_ingredient.html.erb (2.1ms)
+  Rendered recipes/show.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 116ms (Views: 107.2ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2016-10-28 14:32:31 -0700
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:3000/courses
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for ::1 at 2016-10-28 14:32:31 -0700
 Processing by CoursesController#index as HTML
   Rendering courses/index.html.erb within layouts/application
-  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
-  Rendered courses/index.html.erb within layouts/application (1.6ms)
-Completed 200 OK in 34ms (Views: 30.2ms | ActiveRecord: 0.3ms)
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Completed 200 OK in 101ms (Views: 97.4ms | ActiveRecord: 1.1ms)
 
 
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."course_id" = $1[0m  [["course_id", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" ORDER BY "courses"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."course_id" = $1 AND "recipes"."id" = $2 LIMIT $3[0m  [["course_id", 1], ["id", 62], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (8.5ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "amount", "measurement", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["recipe_id", 62], ["ingredient_id", 1], ["amount", 1], ["measurement", "cup"], ["created_at", 2016-10-29 00:03:11 UTC], ["updated_at", 2016-10-29 00:03:11 UTC]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m

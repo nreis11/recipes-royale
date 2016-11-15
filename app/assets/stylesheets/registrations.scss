@@ -1,0 +1,18 @@
+div.sign-up-hero {
+  background: url(https://static.pexels.com/photos/5793/food-healthy-hand-cooking.jpg) center center no-repeat;
+}
+
+div.login-hero {
+  background: url(https://static.pexels.com/photos/1398/food-vegetables-meal-kitchen.jpg) center center no-repeat;
+}
+
+div.sign-up-hero,
+div.login-hero {
+	background-size: cover;
+	height: 800px;
+}
+
+div.sign-up-hero .well,
+div.login-hero .well {
+	background: rgba(255, 255, 255, 0.9)
+}
