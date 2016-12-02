@@ -1,5 +1,5 @@
-# [Recipes Royal](https://salty-cliffs-79330.herokuapp.com)
-A mobile-friendly web app built on rails by 4 Dev Bootcamp studnets in 3 days.
+# [Recipes Royal](https://recipes-royal.herokuapp.com)
+A mobile-friendly web app built on rails by 4 Dev Bootcamp students in 3 days.
 
 ### Mock Client Project Prompt:
 
