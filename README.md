@@ -1,5 +1,11 @@
-# [Recipes Royal](https://recipes-royale.herokuapp.com)
-A mobile-friendly web app built on rails by 4 Dev Bootcamp students in 3 days.
+# [Recipes Royale](https://recipes-royale.herokuapp.com)
+Crowdsource recipes with ease using this mobile-friendly web app. A user can personalize a recipe collection and find recipes by ingredient, all in one convenient location.
+
+###Contributors:
+* [Ali Marie Baker](https://github.com/thealicat13)
+* [Nick Reis](https://github.com/reeses-pieces)
+* [Jaime Rios](https://github.com/jaimejrios)
+* [Marvan Taghvaie](https://github.com/marvant)
 
 ### Mock Client Project Prompt:
 
