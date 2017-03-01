@@ -1,4 +1,4 @@
-# [Recipes Royal](https://recipes-royal.herokuapp.com)
+# [Recipes Royal](https://recipes-royale.herokuapp.com)
 A mobile-friendly web app built on rails by 4 Dev Bootcamp students in 3 days.
 
 ### Mock Client Project Prompt:
@@ -13,7 +13,7 @@ A user should be able to submit a SINGLE recipe to a category:
 * Main Course
 * Dessert
 
-A recipe should consist of a name, ingredients, difficulty level, prep time, and directions, and creator.
+A recipe should consist of a name, ingredients, difficulty level, prep time, directions, and creator.
 Each Ingredient consists of the item, the amount, and the measurement
 
 Nice to have:
